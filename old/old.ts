@@ -1,19 +1,6 @@
-const getUser = (): undefined => {};
+type Pair<T> = [T, T];
+// type Pair2<T> = [first:T, T];
 
-type UserType = {
-  id: number;
-  name: string;
-};
+let array: string[] | number[] = [];
 
-class User {
-  private _id: number | undefined;
-  static users: UserType[] = [{ id: 1, name: "Alex" }];
-
-  get id(): string | undefined {
-    return User.users.find((user) => user.id === this._id)?.name;
-  }
-
-  set id(id: number) {
-    this._id = id;
-  }
-}
+array.filter((X) => !!X);
