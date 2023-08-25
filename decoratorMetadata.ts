@@ -4,7 +4,6 @@ import { jsonify, serialize } from "./serializer";
 
 class Person {
   public readonly firstName: string;
-  @serialize
   public readonly lastName: string;
 
   @serialize
@@ -27,5 +26,5 @@ class Person {
 }
 
 console.log(Person[Symbol.metadata]);
-const person = new Person("Usman", "Rehman", 87);
+const person = new Person("Usman", "Rehman", 98);
 console.log(person.toJSON());
