@@ -1,5 +1,11 @@
 (Symbol.dispose as any) ??= Symbol("Symbol.dispose");
 
+const cleanup = (text: string) => {
+  console.log(`Disposing ${text}`);
+};
+
+const someCondition = true;
+
 class Log implements Disposable {
   #text: string;
 
@@ -8,20 +14,18 @@ class Log implements Disposable {
   }
 
   [Symbol.dispose]() {
-    console.log(`Disposing ${this.#text}`);
+    cleanup(this.#text);
   }
 }
 
-const someCondition = true;
-
-const doWork = () => {
-  // some code
-  using log = new Log("123");
+const main = () => {
+  using log = new Log("123")
 
   if (someCondition) {
+
     return;
   }
-  // some other code
+  console.log("some other code");
 };
 
-doWork();
+main();
