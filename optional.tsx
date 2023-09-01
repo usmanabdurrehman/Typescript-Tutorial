@@ -3,12 +3,18 @@ import React, { useState } from "react";
 type Card = { id: number; content: string };
 
 interface CardProps {
-  card: Card;
+  card: Card | undefined;
   onClick: () => void;
 }
 
 const Card = ({ card, onClick }: CardProps) => {
-  return null;
+  if (!card) return null;
+
+  return (
+    <div>
+      <h1>{card.content}</h1>
+    </div>
+  );
 };
 
 const Home = () => {
