@@ -1,18 +1,29 @@
-const getUser = (): undefined => {};
+const items = [1, 2, 3, undefined, 5];
+const filteredItems = items.filter(Boolean);
 
-type UserType = {
-  id: number;
-  name: string;
-};
+fetch("url")
+  .then((res) => res.json())
+  .then((res) => {
+    if(Array.isArray(res)){
+      
+    }else if(typeof res==='string'){
+      
+    }
+    console.log(res);
+  });
 
-class User {
-  private _id: number | undefined;
+const users = ["matt", "sofia", "waqas"] as const;
 
-  get id(): number | undefined {
-    return this._id;
-  }
+users.includes("bryan");
+users.indexOf("bryan");
+users.lastIndexOf("bryan");
 
-  set id(id: number) {
-    this._id = id;
-  }
-}
+const userSet = new Set(users);
+userSet.has("bryan");
+
+const userMap = new Map([
+  ["matt", 0],
+  ["sofia", 1],
+  ["waqas", 2],
+] as const);
+userMap.has("bryan");
